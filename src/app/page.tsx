@@ -140,7 +140,7 @@ export default function GISOperationsPage() {
       </div>
 
       {/* 2. GIS MAP CONSOLE (AdaptiveCard) */}
-      <AdaptiveCard className="overflow-hidden">
+      <AdaptiveCard className="overflow-hidden" bodyClass="p-0">
         {/* Spatial Controls Toolbar */}
         <GISTopToolbar
           activeHazards={activeHazards}

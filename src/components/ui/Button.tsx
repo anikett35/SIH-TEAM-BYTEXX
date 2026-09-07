@@ -32,15 +32,15 @@ export default function Button({
 
   const variantStyles: Record<ButtonVariant, string> = {
     default:
-      'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 focus-visible:ring-gray-300 shadow-xs',
+      'bg-[#0d2236] text-slate-200 border border-cyan-500/30 hover:bg-[#102a40] hover:border-cyan-400/60 active:bg-[#163452] focus-visible:ring-cyan-400 shadow-[0_0_14px_rgba(0,184,255,.08)]',
     primary:
-      'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus-visible:ring-blue-500 shadow-xs',
+      'bg-[#168bff] text-white hover:bg-[#00b8ff] active:bg-[#006bd6] focus-visible:ring-cyan-400 shadow-[0_0_16px_rgba(0,184,255,.22)]',
     accent:
-      'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 focus-visible:ring-blue-500 shadow-xs',
+      'bg-[#00b8ff] text-[#04111f] hover:bg-[#00d9ff] active:bg-[#168bff] focus-visible:ring-cyan-300 shadow-[0_0_16px_rgba(0,217,255,.22)]',
     secondary:
-      'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 focus-visible:ring-gray-300 shadow-xs',
+      'bg-[#0b1b2b] text-slate-200 border border-cyan-500/25 hover:bg-[#102a40] hover:border-cyan-400/55 active:bg-[#163452] focus-visible:ring-cyan-400 shadow-xs',
     danger:
-      'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 focus-visible:ring-red-500 shadow-xs',
+      'bg-[#ff334f] text-white hover:bg-[#ff5252] active:bg-[#d91f3a] focus-visible:ring-rose-300 shadow-[0_0_16px_rgba(255,51,79,.2)]',
   };
 
   return (

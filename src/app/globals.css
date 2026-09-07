@@ -346,3 +346,185 @@
   scrollbar-width: thin;
   scrollbar-color: #d4d4d4 transparent;
 }
+
+/* ByteX national emergency operations visual system. */
+.app-shell,
+.bytex-theme {
+  color: #d8e5f2;
+  background: #030a13;
+  background-image: radial-gradient(circle at 78% -10%, rgba(0, 184, 255, .13), transparent 34rem);
+}
+
+.app-shell .card,
+.app-shell .bg-white,
+.bytex-theme .bg-white {
+  background-color: #0a1c2d !important;
+  border-color: rgba(0, 184, 255, .3) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+}
+
+.app-shell .bg-gray-50,
+.app-shell .bg-gray-100,
+.bytex-theme .bg-gray-50,
+.bytex-theme .bg-gray-100,
+.bytex-theme .bg-slate-50 {
+  background-color: #081a2b !important;
+}
+
+.app-shell .text-gray-900,
+.app-shell .text-gray-800,
+.app-shell .text-gray-700,
+.bytex-theme .text-gray-900,
+.bytex-theme .text-gray-800,
+.bytex-theme .text-gray-700,
+.bytex-theme .text-slate-900,
+.bytex-theme .text-slate-800 {
+  color: #d8e5f2 !important;
+}
+
+.app-shell .text-gray-600,
+.app-shell .text-gray-500,
+.bytex-theme .text-gray-600,
+.bytex-theme .text-gray-500,
+.bytex-theme .text-slate-700,
+.bytex-theme .text-slate-600 {
+  color: #91a8be !important;
+}
+
+.app-shell .text-gray-400,
+.bytex-theme .text-gray-400,
+.bytex-theme .text-slate-500 {
+  color: #718aa4 !important;
+}
+
+.app-shell .border-gray-100,
+.app-shell .border-gray-200,
+.app-shell .border-gray-300,
+.bytex-theme .border-gray-100,
+.bytex-theme .border-gray-200,
+.bytex-theme .border-slate-200,
+.bytex-theme .border-slate-300 {
+  border-color: rgba(0, 184, 255, .25) !important;
+}
+
+.app-shell input,
+.app-shell textarea,
+.app-shell select,
+.bytex-theme input,
+.bytex-theme textarea,
+.bytex-theme select {
+  background-color: #0d2236 !important;
+  color: #d8e5f2 !important;
+  border-color: rgba(0, 184, 255, .3) !important;
+}
+
+.app-shell input:focus,
+.app-shell textarea:focus,
+.app-shell select:focus,
+.bytex-theme input:focus,
+.bytex-theme textarea:focus,
+.bytex-theme select:focus {
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 0 1px #00d9ff, 0 0 14px rgba(0, 217, 255, .14) !important;
+}
+
+.app-shell .table-default > thead > tr > th,
+.bytex-theme .table-default > thead > tr > th {
+  background: #0a1c2d !important;
+  color: #00c8ff !important;
+  border-bottom-color: rgba(0, 184, 255, .38) !important;
+}
+
+.app-shell .table-default > tbody > tr > td,
+.bytex-theme .table-default > tbody > tr > td {
+  color: #d8e5f2 !important;
+  border-bottom-color: rgba(0, 184, 255, .18) !important;
+}
+
+.app-shell .table-default > tbody > tr:hover,
+.bytex-theme .table-default > tbody > tr:hover {
+  background: rgba(0, 184, 255, .08) !important;
+}
+
+.app-shell .gis-toolbar,
+.app-shell .map-control,
+.app-shell .map-legend {
+  background: rgba(10, 28, 45, .95) !important;
+  color: #d8e5f2 !important;
+  border-color: rgba(0, 184, 255, .35) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .3), inset 0 1px rgba(255,255,255,.04) !important;
+}
+
+.app-shell .gis-toolbar button,
+.app-shell .map-control button {
+  color: #91a8be !important;
+  border-color: rgba(0, 184, 255, .2) !important;
+}
+
+.app-shell .gis-toolbar button:hover,
+.app-shell .map-control button:hover {
+  color: #ffffff !important;
+  background: rgba(0, 184, 255, .13) !important;
+}
+
+.app-shell .gis-toolbar button[class*="bg-blue-50"],
+.app-shell .gis-toolbar button[class*="bg-emerald-50"],
+.app-shell .gis-toolbar button[class*="bg-red-50"] {
+  background: rgba(0, 184, 255, .2) !important;
+  color: #00d9ff !important;
+  border-color: rgba(0, 217, 255, .55) !important;
+  box-shadow: 0 0 12px rgba(0, 184, 255, .14) !important;
+}
+
+.app-shell .gis-map,
+.app-shell .gis-map .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-shell .gis-map .leaflet-tile-pane { filter: brightness(.68) saturate(1.25) contrast(1.08); }
+.app-shell .gis-map .leaflet-control-zoom,
+.app-shell .gis-map .leaflet-control-attribution {
+  background: rgba(5, 11, 20, .9) !important;
+  color: #91a8be !important;
+  border: 1px solid rgba(0, 184, 255, .3) !important;
+}
+.app-shell .gis-map .leaflet-control-zoom a { background: transparent !important; color: #00d9ff !important; border-color: rgba(0,184,255,.25) !important; }
+.app-shell .gis-map .leaflet-popup-content-wrapper,
+.app-shell .gis-map .leaflet-popup-tip { background: #0a1c2d !important; color: #d8e5f2 !important; border-color: rgba(0,184,255,.35) !important; }
+.app-shell .gis-map .leaflet-popup-content [class*="bg-slate-50"] { background: #102a40 !important; border-color: rgba(0,184,255,.22) !important; }
+
+.app-shell .recharts-cartesian-grid line { stroke: rgba(145,168,190,.2) !important; }
+.app-shell .recharts-text,
+.app-shell .recharts-cartesian-axis-tick-value { fill: #91a8be !important; }
+.app-shell .recharts-default-tooltip { background: #0a1c2d !important; border-color: rgba(0,184,255,.35) !important; color: #d8e5f2 !important; }
+
+body { background: #030a13; }
+::-webkit-scrollbar-thumb { background: #24516a; }
+::-webkit-scrollbar-thumb:hover { background: #347d99; }
+* { scrollbar-color: #24516a transparent; }
+
+.risk-matrix-page { display: grid; gap: 1rem; }
+.risk-kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+.risk-kpi { position: relative; display: flex; align-items: center; gap: .75rem; min-height: 6rem; overflow: hidden; padding: .85rem 1rem; border: 1px solid rgba(0,184,255,.35); border-radius: .65rem; background: linear-gradient(135deg, rgba(13,34,54,.98), rgba(5,15,28,.98)); box-shadow: inset 0 1px rgba(255,255,255,.04), 0 8px 22px rgba(0,0,0,.24); }
+.risk-kpi::after { content: ''; position: absolute; right: -2rem; bottom: -2.5rem; width: 8rem; height: 6rem; border-radius: 50%; opacity: .22; filter: blur(18px); }
+.risk-kpi-critical { border-color: rgba(255,51,79,.55); } .risk-kpi-critical::after { background: #ff334f; }
+.risk-kpi-warning { border-color: rgba(255,159,28,.55); } .risk-kpi-warning::after { background: #ff9f1c; }
+.risk-kpi-safe { border-color: rgba(0,208,132,.55); } .risk-kpi-safe::after { background: #00d084; }
+.risk-kpi-info { border-color: rgba(0,184,255,.55); } .risk-kpi-info::after { background: #00c8ff; }
+.risk-kpi-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 2.65rem; height: 2.65rem; flex: 0 0 auto; border-radius: 50%; background: rgba(0,184,255,.12); color: #00d9ff; box-shadow: 0 0 14px currentColor; }
+.risk-kpi-critical .risk-kpi-icon { color: #ff5265; background: rgba(255,51,79,.14); }
+.risk-kpi-warning .risk-kpi-icon { color: #ffb020; background: rgba(255,159,28,.14); }
+.risk-kpi-safe .risk-kpi-icon { color: #00e6a0; background: rgba(0,208,132,.14); }
+.risk-kpi > span:last-child { position: relative; z-index: 1; display: grid; gap: .12rem; min-width: 0; }
+.risk-kpi small, .risk-kpi em { color: #91a8be; font-size: .65rem; font-style: normal; }
+.risk-kpi strong { color: #00c8ff; font-size: 1.55rem; line-height: 1.05; }
+.risk-kpi-critical strong { color: #ff465c; } .risk-kpi-warning strong { color: #ffb020; } .risk-kpi-safe strong { color: #16e6a0; }
+.risk-matrix-panel { background: linear-gradient(145deg, rgba(10,28,45,.98), rgba(5,16,29,.98)) !important; border-color: rgba(0,184,255,.35) !important; }
+.risk-matrix-panel .table-default > thead > tr > th { color: #00c8ff !important; background: #0a1c2d !important; border-bottom: 1px solid rgba(0,184,255,.4); }
+.risk-matrix-panel .table-default > tbody > tr > td { background: rgba(8,24,39,.55); border-bottom: 1px solid rgba(0,184,255,.2); }
+.risk-matrix-panel .table-default > tbody > tr:hover > td { background: rgba(0,184,255,.1) !important; }
+@media (max-width: 900px) { .risk-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .risk-kpi-grid { grid-template-columns: 1fr; } }

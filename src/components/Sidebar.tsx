@@ -46,7 +46,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Top Header */}
-      <div className="lg:hidden w-full bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between z-40 shrink-0">
+      <div className="lg:hidden w-full bg-[#091b2a] border-b border-cyan-900/60 px-4 py-3 flex items-center justify-between z-40 shrink-0">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl overflow-hidden bg-gray-900 border border-gray-200 flex items-center justify-center shrink-0 shadow-xs">
             <img src="/logo.webp" alt="ByteX DSS Logo" className="w-full h-full object-cover" />
@@ -68,12 +68,12 @@ export default function Sidebar() {
 
       {/* Desktop Left Sidebar & Mobile Drawer */}
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-40 w-64 h-full bg-white border-r border-gray-200 flex flex-col justify-between transition-transform duration-200 ease-in-out shrink-0 font-sans ${
+        className={`fixed lg:static inset-y-0 left-0 z-40 w-64 h-full bg-[#091b2a] border-r border-cyan-900/60 flex flex-col justify-between transition-transform duration-200 ease-in-out shrink-0 font-sans ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
         {/* Top: Brand Header */}
-        <div className="h-16 px-5 flex items-center border-b border-gray-100 shrink-0">
+        <div className="h-16 px-5 flex items-center border-b border-cyan-900/60 shrink-0">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl overflow-hidden bg-gray-900 border border-gray-200 flex items-center justify-center shrink-0 shadow-xs">
               <img src="/logo.webp" alt="ByteX DSS Logo" className="w-full h-full object-cover" />
@@ -107,11 +107,11 @@ export default function Sidebar() {
                   onClick={() => setIsMobileOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                     isActive
-                      ? 'bg-blue-50 text-blue-600 font-bold shadow-xs'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      ? 'bg-cyan-400/15 text-cyan-300 font-bold shadow-[inset_3px_0_0_#00d9ff]'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <span className={isActive ? 'text-blue-600' : 'text-gray-400'}>
+                  <span className={isActive ? 'text-cyan-300' : 'text-slate-500'}>
                     {link.icon}
                   </span>
                   <span>{link.label}</span>
@@ -136,11 +136,11 @@ export default function Sidebar() {
                   onClick={() => setIsMobileOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                     isActive
-                      ? 'bg-blue-50 text-blue-600 font-bold shadow-xs'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      ? 'bg-cyan-400/15 text-cyan-300 font-bold shadow-[inset_3px_0_0_#00d9ff]'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <span className={isActive ? 'text-blue-600' : 'text-gray-400'}>
+                  <span className={isActive ? 'text-cyan-300' : 'text-slate-500'}>
                     {link.icon}
                   </span>
                   <span>{link.label}</span>

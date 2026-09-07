@@ -86,7 +86,7 @@ export default function GISTopToolbar({
   ];
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs font-sans shrink-0">
+    <div className="gis-toolbar w-full bg-white border-b border-gray-200 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs font-sans shrink-0">
       {/* Left: Hazard Layer Toggles & Infrastructural Overlays */}
       <div className="flex items-center flex-wrap gap-1.5 sm:gap-2">
         {hazardToggles.map((item) => {

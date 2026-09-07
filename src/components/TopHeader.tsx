@@ -29,7 +29,7 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
 
   return (
     <>
-      <header className="h-16 bg-white border-b border-gray-200 px-4 sm:px-6 flex items-center justify-between shrink-0 z-30 font-sans">
+      <header className="h-16 bg-[#091b2a] border-b border-cyan-900/60 px-4 sm:px-6 flex items-center justify-between shrink-0 z-30 font-sans">
         {/* Left: Operational Zone Dropdown & Quick Indicator */}
         <div className="flex items-center gap-3">
           {/* Zone Selector */}
@@ -37,7 +37,7 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
             <button
               type="button"
               onClick={() => setIsZoneOpen(!isZoneOpen)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 text-xs font-semibold text-gray-800 transition-colors shadow-xs"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#102a40] hover:bg-[#163452] border border-cyan-900/60 text-xs font-semibold text-slate-200 transition-colors shadow-xs"
             >
               <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
               <span className="truncate max-w-[200px] sm:max-w-xs">{currentRegion.name}</span>
@@ -87,7 +87,7 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
           <button
             type="button"
             onClick={() => setIsAlertModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-error hover:bg-red-600 text-white text-xs font-bold shadow-xs button-press-feedback transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/40 text-rose-200 text-xs font-bold shadow-[0_0_14px_rgba(255,51,79,.18)] button-press-feedback transition-colors"
           >
             <Megaphone className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Broadcast Alert</span>
@@ -98,9 +98,9 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
             )}
           </button>
 
-          <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-gray-200 text-xs text-gray-600">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span className="font-medium text-gray-700">DEOC Operational</span>
+          <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-cyan-900/60 text-xs text-slate-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#00d084]" />
+            <span className="font-medium text-slate-300">DEOC Operational</span>
           </div>
         </div>
       </header>

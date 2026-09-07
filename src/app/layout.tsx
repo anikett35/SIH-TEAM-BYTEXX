@@ -39,12 +39,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className={`${inter.className} text-gray-800 text-sm bg-gray-100 leading-normal font-medium h-screen antialiased flex flex-col lg:flex-row overflow-hidden font-sans`}>
+      <body className={`bytex-theme ${inter.className} text-gray-200 text-sm bg-[#030a13] leading-normal font-medium h-screen antialiased flex flex-col lg:flex-row overflow-hidden font-sans`}>
         <DisasterProvider>
           <Sidebar />
-          <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-gray-100">
+          <div className="app-shell flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-[#030a13]">
             <TopHeader />
-            <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-gray-100 font-sans">
+            <main className="flex-1 overflow-y-auto p-3 sm:p-5 lg:p-6 bg-[#030a13] font-sans">
               {children}
             </main>
           </div>

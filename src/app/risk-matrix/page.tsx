@@ -14,6 +14,9 @@ import {
   BarChart3,
   ChevronRight,
   Eye,
+  ShieldCheck,
+  Users,
+  Siren,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -84,11 +87,16 @@ export default function RiskMatrixPage() {
   }, [processedHabitations]);
 
   const priorityColors: Record<string, string> = {
-    Immediate: '#DC2626',
-    'Short-Term': '#D97706',
-    'Medium-Term': '#CA8A04',
-    Low: '#16A34A',
+    Immediate: '#FF334F',
+    'Short-Term': '#FF9F1C',
+    'Medium-Term': '#00B8FF',
+    Low: '#00D084',
   };
+
+  const immediateCount = processedHabitations.filter((h) => h.calculatedRisk.priority === 'Immediate').length;
+  const shortTermCount = processedHabitations.filter((h) => h.calculatedRisk.priority === 'Short-Term').length;
+  const lowRiskCount = processedHabitations.filter((h) => h.calculatedRisk.priority === 'Low').length;
+  const totalPopulation = processedHabitations.reduce((sum, h) => sum + h.population, 0);
 
   const handleExportCSV = () => {
     const headers = [
@@ -320,9 +328,15 @@ export default function RiskMatrixPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto w-full font-sans">
+    <div className="risk-matrix-page max-w-7xl mx-auto w-full font-sans">
+      <div className="risk-kpi-grid">
+        <div className="risk-kpi risk-kpi-critical"><span className="risk-kpi-icon"><AlertTriangle className="w-5 h-5" /></span><span><small>Critical Villages</small><strong>{immediateCount}</strong><em>with high risk</em></span></div>
+        <div className="risk-kpi risk-kpi-warning"><span className="risk-kpi-icon"><Siren className="w-5 h-5" /></span><span><small>Immediate Evacuation</small><strong>{shortTermCount}</strong><em>villages</em></span></div>
+        <div className="risk-kpi risk-kpi-safe"><span className="risk-kpi-icon"><ShieldCheck className="w-5 h-5" /></span><span><small>Low Risk Villages</small><strong>{lowRiskCount}</strong><em>safe zone</em></span></div>
+        <div className="risk-kpi risk-kpi-info"><span className="risk-kpi-icon"><Users className="w-5 h-5" /></span><span><small>Population at Risk</small><strong>{totalPopulation.toLocaleString()}</strong><em>estimated</em></span></div>
+      </div>
       {/* Primary Adaptive Card — EXACTLY matching ecme-next customer-list */}
-      <AdaptiveCard className="p-6">
+      <AdaptiveCard className="risk-matrix-panel p-6">
         <div className="flex flex-col gap-5">
           {/* Top Title & Actions Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">

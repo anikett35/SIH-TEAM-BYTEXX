@@ -109,7 +109,7 @@ export default function MapLeaflet({
       if (coords.length > 0) {
         const bounds = L.latLngBounds(coords);
         if (bounds.isValid()) {
-          map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+          map.fitBounds(bounds, { padding: [40, 40], maxZoom: 5 });
         } else {
           map.setView(region.center, region.zoom);
         }
@@ -170,13 +170,15 @@ export default function MapLeaflet({
 
     mapInstanceRef.current = map;
 
-    // Force dimension recalculation and safe bounds fitting after layout paints
-    timer1 = setTimeout(() => {
+    const fitAfterLayout = () => {
       if (mapInstanceRef.current) {
-        mapInstanceRef.current.invalidateSize();
+        mapInstanceRef.current.invalidateSize({ pan: false });
         fitClusterBounds(mapInstanceRef.current);
       }
-    }, 100);
+    };
+
+    map.whenReady(() => requestAnimationFrame(fitAfterLayout));
+    timer1 = setTimeout(fitAfterLayout, 180);
 
     timer2 = setTimeout(() => {
       if (mapInstanceRef.current) {
@@ -521,12 +523,12 @@ export default function MapLeaflet({
   ]);
 
   return (
-    <div className="relative flex-1 w-full h-full min-h-[440px] overflow-hidden bg-slate-100">
+    <div className="gis-map relative flex-1 w-full h-full min-h-[440px] overflow-hidden bg-slate-100">
       {/* Map Container */}
       <div ref={mapContainerRef} className="w-full h-full absolute inset-0 z-0" />
 
       {/* Floating Basemap Selector */}
-      <div className="absolute top-3 left-3 z-[400] flex items-center gap-1 p-1 rounded-lg bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-medium text-slate-700">
+      <div className="map-control absolute top-3 left-3 z-[400] flex items-center gap-1 p-1 rounded-lg bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-medium text-slate-700">
         <span className="text-slate-500 px-2 flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider">
           <Layers className="w-3.5 h-3.5 text-blue-700" />
           <span>Layer:</span>
@@ -583,14 +585,14 @@ export default function MapLeaflet({
           }
         }}
         title="Reset and focus settlement cluster"
-        className="absolute bottom-3 left-3 sm:bottom-6 sm:left-3 z-[400] px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-sm transition-all flex items-center gap-1.5 text-xs font-semibold"
+        className="map-control absolute bottom-3 left-3 sm:bottom-6 sm:left-3 z-[400] px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-sm transition-all flex items-center gap-1.5 text-xs font-semibold"
       >
         <Focus className="w-3.5 h-3.5 text-blue-700" />
         <span>Focus Cluster</span>
       </button>
 
       {/* Map Legend Overlay */}
-      <div className="absolute bottom-3 right-12 z-[400] hidden md:block p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-md text-xs max-w-[210px]">
+      <div className="map-legend absolute bottom-3 right-12 z-[400] hidden md:block p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-md text-xs max-w-[210px]">
         <div className="font-bold text-[10px] text-slate-500 uppercase tracking-wider mb-2 flex items-center justify-between border-b border-slate-200 pb-1.5">
           <span>Map Legend</span>
           <span className="text-[9px] text-emerald-700 font-bold px-1.5 py-0.2 rounded bg-emerald-50 border border-emerald-200">LIVE</span>
