@@ -12,8 +12,7 @@ An intelligent, GIS-enabled Disaster Decision Support System built for District 
 - **Disaster Stress Simulator**: Interactive sandbox for climatic anomalies and road disruption simulations.
 - **Alert Center**: CAP ITU-T X.1303 multi-channel broadcast engine (WhatsApp, SMS, Cell-Broadcast, FM Radio, PA Sirens).
 
-### Tech Stack
-- **Framework**: Next.js 14 (App Router), React, TypeScript
-- **Styling**: Tailwind CSS, Design System Utility Tokens
+- **Tech Stack**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS
+- **Theme Engine**: Adaptive Command Center Dark Mode & High-Contrast Light Mode with instantaneous client-side switching and persistent storage
 - **Mapping**: Leaflet, OpenStreetMap / Mappls
 - **Icons & Data**: Lucide React, Recharts
