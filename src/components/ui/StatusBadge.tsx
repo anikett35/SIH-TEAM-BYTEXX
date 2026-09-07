@@ -44,10 +44,14 @@ export default function StatusBadge({
   className = '',
 }: StatusBadgeProps) {
   const styles: Record<SeverityLevel, string> = {
-    immediate: 'bg-rose-500/15 text-rose-300 border border-rose-400/40 shadow-[0_0_10px_rgba(255,51,79,.12)]',
-    'short-term': 'bg-orange-400/15 text-orange-300 border border-orange-300/40 shadow-[0_0_10px_rgba(255,159,30,.1)]',
-    'medium-term': 'bg-cyan-400/15 text-cyan-300 border border-cyan-300/35 shadow-[0_0_10px_rgba(0,184,255,.1)]',
-    safe: 'bg-emerald-400/15 text-emerald-300 border border-emerald-300/40 shadow-[0_0_10px_rgba(0,208,132,.1)]',
+    immediate:
+      'bg-red-50 text-red-600 border border-red-200/60 dark:bg-rose-500/15 dark:text-rose-300 dark:border-rose-400/40 dark:shadow-[0_0_10px_rgba(255,51,79,.12)]',
+    'short-term':
+      'bg-amber-50 text-amber-600 border border-amber-200/60 dark:bg-orange-400/15 dark:text-orange-300 dark:border-orange-300/40 dark:shadow-[0_0_10px_rgba(255,159,30,.1)]',
+    'medium-term':
+      'bg-blue-50 text-blue-600 border border-blue-200/60 dark:bg-cyan-400/15 dark:text-cyan-300 dark:border-cyan-300/35 dark:shadow-[0_0_10px_rgba(0,184,255,.1)]',
+    safe:
+      'bg-emerald-50 text-emerald-600 border border-emerald-200/60 dark:bg-emerald-400/15 dark:text-emerald-300 dark:border-emerald-300/40 dark:shadow-[0_0_10px_rgba(0,208,132,.1)]',
   };
 
   const defaultLabels: Record<SeverityLevel, string> = {
