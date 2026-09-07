@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neutral: #ffffff;
+  --primary: #2a85ff;
+  --primary-deep: #0069f6;
+  --primary-mild: #4996ff;
+  --primary-subtle: #2a85ff1a;
+  --error: #ff6a55;
+  --error-subtle: #ff6a551a;
+  --success: #10b981;
+  --success-subtle: #05eb7624;
+  --info: #2a85ff;
+  --info-subtle: #2a85ff1a;
+  --warning: #f59e0b;
+  --warning-subtle: #ffd40045;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  --gray-950: #0a0a0a;
+
+  /* Font Family Stacks */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--gray-200, currentColor);
+  }
+
+  /* Universal High-Contrast Text Selection - Fixes invisible text on click/select */
+  ::selection {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+  }
+
+  ::-moz-selection {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+  }
+
+  button,
+  [role=button] {
+    cursor: pointer;
+  }
+
+  body {
+    color: var(--gray-700);
+    background-color: var(--gray-100);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  .h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.025em;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.025em;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+  }
+
+  h4,
+  .h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.015em;
+  }
+
+  h5,
+  .h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+
+  h6,
+  .h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+  }
+
+  hr {
+    border-color: var(--gray-200);
+  }
+}
+
+/* =========================================================
+   TEMPLATE UI COMPONENT SYSTEM (from a:\SIH\TypeScript)
+   ========================================================= */
+@layer components {
+
+  /* Tag & Minimal Status Indicators */
+  .tag {
+    @apply rounded-lg py-1 px-2.5 border items-center inline-flex text-xs font-semibold whitespace-nowrap;
+  }
+
+  .tag-default {
+    @apply bg-gray-100 border-gray-200 text-gray-900;
+  }
+
+  .tag-affix {
+    @apply h-2 w-2 rounded-full bg-gray-400;
+  }
+
+  .tag-prefix {
+    @apply mr-1.5;
+  }
+
+  .tag-suffix {
+    @apply ml-1.5;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl;
+  }
+
+  .card-border {
+    @apply border border-gray-200;
+  }
+
+  .card-shadow {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.06);
+    @apply border-b border-gray-200;
+  }
+
+  .card-header-border {
+    @apply border-b border-gray-200 rounded-t-2xl;
+  }
+
+  .card-header-extra {
+    @apply flex justify-between items-center;
+  }
+
+  .card-footer {
+    @apply rounded-bl-xl rounded-br-xl;
+  }
+
+  .card-footer-border {
+    @apply border-t border-gray-200;
+  }
+
+  .card-header,
+  .card-footer {
+    @apply py-3 px-5;
+  }
+
+  .card-body {
+    @apply p-5;
+  }
+
+  .card-gutterless {
+    @apply p-0;
+  }
+
+  /* Buttons */
+  .button {
+    @apply font-bold outline-none whitespace-nowrap content-center rounded-xl inline-flex items-center justify-center;
+  }
+
+  .button-press-feedback {
+    @apply transition-transform active:scale-[0.98];
+  }
+
+  /* Tables */
+  .table-default {
+    @apply table-auto min-w-full divide-y divide-gray-200;
+  }
+
+  .table-default>thead>tr>th {
+    @apply px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-50;
+  }
+
+  .table-default>tbody {
+    @apply divide-y divide-gray-200;
+  }
+
+  .table-default>tbody>tr>td {
+    @apply px-6 py-4 text-sm text-gray-800;
+  }
+
+  .table-default>tfoot>tr>td {
+    @apply px-6 py-3 border-t border-gray-200;
+  }
+
+  /* Headers */
+  .header {
+    @apply bg-white flex z-[31] sticky top-0 w-full border-b border-gray-200;
+  }
+
+  .header-wrapper {
+    @apply flex relative items-center justify-between p-0 px-4 w-full;
+  }
+
+  /* Inputs (from template _input.css) */
+  .input {
+    @apply border border-gray-200 bg-gray-100 rounded-xl w-full py-2 px-3 appearance-none transition duration-150 text-gray-900 font-semibold text-xs sm:text-sm ease-in-out;
+  }
+
+  .input:focus,
+  .input:focus-within {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+
+  .input::placeholder {
+    color: var(--gray-400);
+    font-weight: 400;
+  }
+
+  .input-wrapper {
+    @apply relative w-full flex items-center;
+  }
+
+  .input-suffix-start {
+    @apply absolute left-3 flex items-center pointer-events-none text-gray-400;
+  }
+
+  .input-suffix-end {
+    @apply absolute right-3 flex items-center text-gray-400;
+  }
+
+  /* Tag Color Variants */
+  .tag-primary {
+    background-color: var(--primary-subtle);
+    border-color: transparent;
+    color: var(--primary);
+  }
+
+  .tag-success {
+    background-color: var(--success-subtle);
+    border-color: transparent;
+    color: var(--success);
+  }
+
+  .tag-warning {
+    background-color: var(--warning-subtle);
+    border-color: transparent;
+    color: var(--warning);
+  }
+
+  .tag-error {
+    background-color: var(--error-subtle);
+    border-color: transparent;
+    color: var(--error);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible, clean focus states */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Custom Leaflet overrides for clean institutional light map */
+.leaflet-container {
+  background: #EBF0F5 !important;
+  font-family: var(--font-sans) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #171717 !important;
+  border-radius: 1rem !important;
+  border: 1px solid #E5E5E5 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Modern Minimalist Scrollbar matching Ecme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}
