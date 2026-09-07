@@ -32,13 +32,13 @@ export default function Button({
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      'bg-primary text-white hover:bg-primary-deep active:bg-primary-deep focus-visible:ring-primary shadow-xs',
+      'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus-visible:ring-blue-500 shadow-xs',
     accent:
-      'bg-primary-mild text-white hover:bg-primary-deep active:bg-primary-deep focus-visible:ring-primary shadow-xs',
+      'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 focus-visible:ring-blue-500 shadow-xs',
     secondary:
-      'bg-white text-gray-800 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 focus-visible:ring-gray-300 shadow-xs',
+      'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 focus-visible:ring-gray-300 shadow-xs',
     danger:
-      'bg-error text-white hover:bg-red-600 active:bg-red-700 focus-visible:ring-error shadow-xs',
+      'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 focus-visible:ring-red-500 shadow-xs',
   };
 
   return (
