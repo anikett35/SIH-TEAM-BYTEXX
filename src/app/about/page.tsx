@@ -30,8 +30,8 @@ const SECTIONS = [
 
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="card card-border p-6 bg-white shadow-xs space-y-4 scroll-mt-4">
-      <h2 className="font-bold text-sm sm:text-base text-gray-900 uppercase tracking-wide border-b border-gray-100 pb-3">
+    <section id={id} className="card card-border p-6 bg-white shadow-xs space-y-4 scroll-mt-6">
+      <h2 className="font-bold text-sm sm:text-base text-gray-900 tracking-wide border-b border-gray-100 pb-3">
         {title}
       </h2>
       <div className="text-xs text-gray-700 leading-relaxed space-y-3">
@@ -44,6 +44,14 @@ function Section({ id, title, children }: { id: string; title: string; children:
 export default function AboutPage() {
   const [activeSection, setActiveSection] = useState('overview');
 
+  const scrollToSection = (id: string) => {
+    setActiveSection(id);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto w-full space-y-6 font-sans">
       <div>
@@ -52,47 +60,66 @@ export default function AboutPage() {
           Algorithmic formulations, multi-hazard risk equations, capacity allocation logic, and operational specifications
         </p>
       </div>
-        {/* Technical Metadata Header Strip */}
-        <div className="card card-border p-4 bg-white shadow-xs flex flex-wrap items-center justify-between gap-4 text-xs">
-          <div>
-            <span className="text-gray-400">Target Environment:</span>{' '}
-            <strong className="text-gray-900 font-semibold">District Emergency Operations Centres (DEOC)</strong>
-          </div>
-          <div>
-            <span className="text-gray-400">Standard:</span>{' '}
-            <strong className="text-gray-900 font-semibold">Disaster Management Act 2005 (Section 34)</strong>
-          </div>
-          <div>
-            <span className="text-gray-400">Last Recalculation:</span>{' '}
-            <strong className="font-sans font-semibold text-gray-900">06 Sep 2026 | 23:46 IST</strong>
-          </div>
-        </div>
 
-        {/* 2-Column Technical Layout: Left Sticky Sidebar + Right Technical Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 items-start">
-          {/* LEFT SIDEBAR NAVIGATION */}
-          <nav className="hidden lg:block sticky top-4 card card-border bg-white shadow-xs p-2 space-y-1">
-            <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">
-              Table of Contents
-            </div>
-            {SECTIONS.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                onClick={() => setActiveSection(s.id)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
-                  activeSection === s.id
-                    ? 'bg-gray-100 text-gray-900 font-bold'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-              >
-                <span className={activeSection === s.id ? 'text-primary' : 'text-gray-400'}>
-                  {s.icon}
-                </span>
-                <span>{s.label}</span>
-              </a>
-            ))}
-          </nav>
+      {/* Technical Metadata Header Strip */}
+      <div className="card card-border p-4 bg-white shadow-xs flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div>
+          <span className="text-gray-400">Target Environment:</span>{' '}
+          <strong className="text-gray-900 font-semibold">District Emergency Operations Centres (DEOC)</strong>
+        </div>
+        <div>
+          <span className="text-gray-400">Standard:</span>{' '}
+          <strong className="text-gray-900 font-semibold">Disaster Management Act 2005 (Section 34)</strong>
+        </div>
+        <div>
+          <span className="text-gray-400">Last Recalculation:</span>{' '}
+          <strong className="font-sans font-semibold text-gray-900">06 Sep 2026 | 23:46 IST</strong>
+        </div>
+      </div>
+
+      {/* Mobile Horizontal Section Tabs */}
+      <div className="lg:hidden flex items-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1">
+        {SECTIONS.map((s) => (
+          <button
+            key={s.id}
+            type="button"
+            onClick={() => scrollToSection(s.id)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors border ${
+              activeSection === s.id
+                ? 'bg-blue-50 text-blue-600 border-blue-200 shadow-xs'
+                : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* 2-Column Technical Layout: Left Sticky Sidebar + Right Technical Content */}
+      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 items-start">
+        {/* LEFT SIDEBAR NAVIGATION */}
+        <nav className="hidden lg:block sticky top-4 card card-border bg-white shadow-xs p-2 space-y-1">
+          <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">
+            Table of Contents
+          </div>
+          {SECTIONS.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => scrollToSection(s.id)}
+              className={`w-full text-left flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
+                activeSection === s.id
+                  ? 'bg-blue-50 text-blue-600 font-bold shadow-xs'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+            >
+              <span className={activeSection === s.id ? 'text-blue-600' : 'text-gray-400'}>
+                {s.icon}
+              </span>
+              <span>{s.label}</span>
+            </button>
+          ))}
+        </nav>
 
           {/* RIGHT DOCUMENTATION CONTENT */}
           <div className="space-y-5">

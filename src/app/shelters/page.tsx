@@ -46,14 +46,14 @@ function shelterStatus(available: number, ratio: number): {
   if (available < 0) {
     return {
       severity: 'immediate',
-      label: `Deficit: ${Math.abs(available)}`,
+      label: 'Deficit',
       isDeficit: true,
     };
   }
   if (ratio >= 0.85) {
     return {
       severity: 'short-term',
-      label: 'Near Capacity',
+      label: 'Near Full',
       isDeficit: false,
     };
   }
@@ -172,17 +172,7 @@ export default function ShelterNetworkPage() {
         <div className="border-b border-gray-200 pb-3">
           <div className="flex items-center justify-between gap-2">
             <span className="font-sans text-[11px] text-gray-400">ID: {site.id}</span>
-            <span
-              className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold border ${
-                status.severity === 'immediate'
-                  ? 'bg-red-50 text-red-700 border-red-200'
-                  : status.severity === 'short-term'
-                  ? 'bg-amber-50 text-amber-700 border-amber-200'
-                  : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-              }`}
-            >
-              {status.label}
-            </span>
+            <StatusBadge severity={status.severity} label={status.label} />
           </div>
           <h2 className="font-bold text-base text-gray-900 mt-1 uppercase">
             {site.name}
@@ -519,34 +509,23 @@ export default function ShelterNetworkPage() {
                         </div>
                       </td>
 
-                      <td>
-                        <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ${
-                            site.hasMedicalTriage
-                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                              : 'bg-gray-100 text-gray-600 border border-gray-200'
-                          }`}
-                        >
-                          {site.hasMedicalTriage ? 'Triage Ready' : 'Basic First Aid'}
+                      <td className="whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1.5 text-xs text-gray-700">
+                          <span
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              site.hasMedicalTriage ? 'bg-emerald-500' : 'bg-gray-300'
+                            }`}
+                          />
+                          <span>{site.hasMedicalTriage ? 'Triage' : 'First Aid'}</span>
                         </span>
                       </td>
 
-                      <td className="text-[11px] text-gray-600">
+                      <td className="text-xs text-gray-600 font-sans tabular-nums whitespace-nowrap">
                         {(site.waterSupplyLitersPerDay / 1000).toFixed(0)}k L/day
                       </td>
 
-                      <td>
-                        <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold border ${
-                            status.severity === 'immediate'
-                              ? 'bg-red-50 text-red-700 border-red-200'
-                              : status.severity === 'short-term'
-                              ? 'bg-amber-50 text-amber-700 border-amber-200'
-                              : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                          }`}
-                        >
-                          {status.label}
-                        </span>
+                      <td className="whitespace-nowrap">
+                        <StatusBadge severity={status.severity} label={status.label} />
                       </td>
 
                       <td className="pr-6 text-right">

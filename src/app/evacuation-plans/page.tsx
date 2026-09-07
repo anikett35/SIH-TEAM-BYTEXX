@@ -147,13 +147,14 @@ export default function EvacuationPlansPage() {
           {/* Phase Switcher Tabs & Quick Search */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-b border-gray-100 pb-4">
             {/* Tabs */}
+            {/* Phase Selector */}
             <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl border border-gray-200 text-xs shrink-0">
               <button
                 type="button"
                 onClick={() => setActivePhase('phase1')}
                 className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${
                   activePhase === 'phase1'
-                    ? 'bg-white text-red-600 font-bold shadow-xs'
+                    ? 'bg-white text-blue-600 font-bold shadow-xs'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -164,7 +165,7 @@ export default function EvacuationPlansPage() {
                 onClick={() => setActivePhase('phase2')}
                 className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${
                   activePhase === 'phase2'
-                    ? 'bg-white text-amber-600 font-bold shadow-xs'
+                    ? 'bg-white text-blue-600 font-bold shadow-xs'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -175,7 +176,7 @@ export default function EvacuationPlansPage() {
                 onClick={() => setActivePhase('phase3')}
                 className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${
                   activePhase === 'phase3'
-                    ? 'bg-white text-gray-900 font-bold shadow-xs'
+                    ? 'bg-white text-blue-600 font-bold shadow-xs'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -244,7 +245,7 @@ export default function EvacuationPlansPage() {
                         </span>
                       </td>
 
-                      <td className="text-[11px] text-gray-600 max-w-xs leading-relaxed">
+                      <td className="text-xs text-gray-600 max-w-[240px] truncate" title={hab.calculatedRisk.primaryThreatReason}>
                         {hab.calculatedRisk.primaryThreatReason}
                       </td>
 
@@ -261,34 +262,41 @@ export default function EvacuationPlansPage() {
                         {hab.relocationAssignment?.assignedBuses ?? 0}
                       </td>
 
-                      <td>
+                      <td className="whitespace-nowrap">
                         <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${
+                          className={`inline-flex items-center justify-center px-2 py-0.5 rounded text-xs font-semibold ${
                             hab.relocationAssignment?.evacuationRouteStatus === 'blocked'
-                              ? 'bg-red-50 text-red-700 border-red-200'
-                              : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                              ? 'bg-red-50 text-red-600 border border-red-200/60'
+                              : hab.relocationAssignment?.evacuationRouteStatus === 'caution'
+                              ? 'bg-amber-50 text-amber-600 border border-amber-200/60'
+                              : 'bg-emerald-50 text-emerald-600 border border-emerald-200/60'
                           }`}
                         >
-                          {hab.relocationAssignment?.evacuationRouteStatus || 'clear'}
+                          {hab.relocationAssignment?.evacuationRouteStatus === 'blocked'
+                            ? 'Blocked'
+                            : hab.relocationAssignment?.evacuationRouteStatus === 'caution'
+                            ? 'Caution'
+                            : 'Open'}
                         </span>
                       </td>
 
-                      <td className="pr-6">
-                        <span
-                          className={`font-semibold text-[11px] uppercase ${
+                      <td className="pr-6 whitespace-nowrap">
+                        <StatusBadge
+                          severity={
                             activePhase === 'phase1'
-                              ? 'text-error font-bold'
+                              ? 'immediate'
                               : activePhase === 'phase2'
-                              ? 'text-warning font-bold'
-                              : 'text-gray-600'
-                          }`}
-                        >
-                          {activePhase === 'phase1'
-                            ? 'EVACUATE <6H'
-                            : activePhase === 'phase2'
-                            ? 'STAGE CONVOY'
-                            : 'MONITOR'}
-                        </span>
+                              ? 'short-term'
+                              : 'safe'
+                          }
+                          label={
+                            activePhase === 'phase1'
+                              ? 'Evacuate'
+                              : activePhase === 'phase2'
+                              ? 'Stage Fleet'
+                              : 'Monitor'
+                          }
+                        />
                       </td>
                     </tr>
                   );
