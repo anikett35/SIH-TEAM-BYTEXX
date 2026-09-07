@@ -69,7 +69,7 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
                   >
                     <div>
                       <div className="truncate">{reg.name}</div>
-                      <div className="text-[10px] text-gray-400 font-normal">{reg.state} &bull; {reg.hazardType}</div>
+                      <div className="text-[10px] text-gray-400 font-normal">{reg.state}</div>
                     </div>
                     {currentRegion.id === reg.id && (
                       <Check className="w-3.5 h-3.5 text-primary shrink-0" />
@@ -80,10 +80,6 @@ export default function TopHeader({ onMobileMenuToggle }: TopHeaderProps) {
             )}
           </div>
 
-          <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-red-50 text-red-700 border border-red-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-error animate-pulse" />
-            <span>LEVEL 3 HIGH ALERT</span>
-          </span>
         </div>
 
         {/* Right: Quick Actions & Status */}

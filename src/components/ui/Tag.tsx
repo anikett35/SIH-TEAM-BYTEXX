@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'prefix'> {
   children: ReactNode;
   prefix?: boolean | ReactNode;
   prefixClass?: string;

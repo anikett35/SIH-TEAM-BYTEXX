@@ -103,6 +103,17 @@ export default function EmergencyAlertModal({
 
   const targetPopulation = targetHabitations.reduce((acc, h) => acc + h.population, 0);
 
+  const channelLabelsMap: Record<string, string> = {
+    cell: 'Cell Broadcast',
+    whatsapp: 'WhatsApp',
+    sms: 'SMS Gateway',
+    radio: 'FM Radio',
+    pa: 'Siren / PA',
+  };
+  const activeChannelLabels = Object.entries(channels)
+    .filter(([_, active]) => active)
+    .map(([k]) => channelLabelsMap[k] || k);
+
   return (
     <div className="fixed inset-0 z-[600] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm font-sans">
       <div className="w-full max-w-lg bg-white border border-gray-200 rounded-2xl shadow-modal overflow-hidden text-gray-900">

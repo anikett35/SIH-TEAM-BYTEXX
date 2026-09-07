@@ -319,7 +319,7 @@ export default function ShelterNetworkPage() {
           <div className="flex items-center justify-between">
             <div>
               <div className="font-bold text-gray-900">{site.officerInCharge.name}</div>
-              <div className="text-gray-500 text-[11px]">{site.officerInCharge.role}</div>
+              <div className="text-gray-500 text-[11px]">{site.officerInCharge.designation || site.officerInCharge.role}</div>
             </div>
             <button
               type="button"

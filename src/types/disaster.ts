@@ -75,11 +75,14 @@ export interface SafeSite {
   sanitationUnits: number;
   hasMedicalTriage: boolean;
   hasEmergencyHelipad: boolean;
+  hasHelipadAccess?: boolean;
   hasBackupPower: boolean;
+  busParkingCapacity?: number;
   officerInCharge: {
     name: string;
     designation: string;
     phone: string;
+    role?: string;
   };
   status: 'available' | 'near_capacity' | 'overflow' | 'isolated';
 }

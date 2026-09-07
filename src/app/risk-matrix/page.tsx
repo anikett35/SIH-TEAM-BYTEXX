@@ -187,7 +187,7 @@ export default function RiskMatrixPage() {
           )}
           <div className="flex items-center gap-2 text-gray-500 text-xs mt-1">
             <MapPin className="w-3.5 h-3.5 text-gray-400" />
-            <span>{hab.district} &bull; {hab.elevationMeters}m MSL &bull; Ward {hab.wardNumber}</span>
+            <span>{hab.district} &bull; {hab.elevationMeters}m MSL</span>
           </div>
         </div>
 
